@@ -46,6 +46,31 @@ public class User {
 	@ManyToMany
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
+	
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public User(Long id, @NotBlank @Size(min = 5, max = 10) String firstName,
+			@NotBlank @Size(min = 5, max = 10) String lastName, @NotBlank String gender, Date birthday,
+			@NotBlank @Size(min = 8, max = 20) String phoneNumber, @NotBlank String country,
+			@NotBlank @Email String email,
+			@NotBlank(message = "New password is mandatory") @Size(min = 8, max = 16) String password,
+			Set<Role> roles) {
+		super();
+		Id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.birthday = birthday;
+		this.phoneNumber = phoneNumber;
+		this.country = country;
+		this.email = email;
+		this.password = password;
+		this.roles = roles;
+	}
+
 	public Long getId() {
 		return Id;
 	}

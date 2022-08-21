@@ -2,6 +2,8 @@ package com.example.demoelarning.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,7 +29,7 @@ public List<Traineeship>getAllTraineeship(){
 	return this.traineeshipService.getAllTraineeships();
 }
 @PostMapping
-public Traineeship addTraineeship(@RequestBody Traineeship a) {
+public Traineeship addTraineeship(@Valid@RequestBody Traineeship a) {
 	return this.traineeshipService.addTraineeship(a);
 }
 @GetMapping("/{id}")
@@ -42,8 +44,12 @@ public Traineeship update(@PathVariable Long id,@RequestBody Traineeship a) {
 @DeleteMapping("/{id}")
 public void delete(@PathVariable Long id) {
 	this.traineeshipService.deleteTraineeship(id);
-	
-
-
 }
+@PutMapping("/abon/{id}")
+public Traineeship abonner(@RequestBody Traineeship c,@PathVariable Long id) {
+	return this.traineeshipService.abonner(c, id);
+	
+	
+}
+
 }

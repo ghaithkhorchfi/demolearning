@@ -10,5 +10,6 @@ public interface TraineeshipService {
 	public Traineeship getById(Long id);
 	public Traineeship updateTraineeship(Traineeship a);
 	public void deleteTraineeship(Long id);
+	public Traineeship abonner(Traineeship a,Long id);
 
 }

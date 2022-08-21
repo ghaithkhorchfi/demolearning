@@ -7,13 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demoelarning.models.Traineeship;
+import com.example.demoelarning.models.User;
 import com.example.demoelarning.repository.TraineeshipRepo;
+import com.example.demoelarning.repository.UserRepo;
 import com.example.demoelarning.service.TraineeshipService;
 
 @Service
 public class TraineeshipServiceImpl implements TraineeshipService {
 	@Autowired
 	private TraineeshipRepo traineeshipRepo;
+	@Autowired
+	private UserRepo userRepo;
 
 	@Override
 	public Traineeship addTraineeship(Traineeship a) {
@@ -44,6 +48,16 @@ public class TraineeshipServiceImpl implements TraineeshipService {
 	public void deleteTraineeship(Long id) {
 		// TODO Auto-generated method stub
 		this.traineeshipRepo.deleteById(id);
+	}
+
+	@Override
+	public Traineeship abonner(Traineeship a, Long id) {
+		// TODO Auto-generated method stub
+		Optional<User>u=this.userRepo.findById(id);
+		a.abonner(u.get());
+		return this.traineeshipRepo.save(a);
+		
+		
 	}
 }
 

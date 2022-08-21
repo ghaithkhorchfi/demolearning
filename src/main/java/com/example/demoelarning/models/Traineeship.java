@@ -32,10 +32,10 @@ public class Traineeship {
 	@NotNull
 	private String totalOfHours;
 	@NotNull
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private Date startDate;
 	@NotNull
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private Date finalDate;
 	@NotNull
 	private String price;
@@ -51,7 +51,6 @@ public class Traineeship {
 			String totalOfHours, Date startDate, Date finalDate, String price, @NotBlank String startTime,
 			String meetingHour, List<User> users) {
 		super();
-		Id = id;
 		this.title = title;
 		this.description = description;
 		this.level = level;
@@ -139,6 +138,10 @@ public class Traineeship {
 	}
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+	public void abonner(User a) {
+		this.users.add(a);
+		
 	}
 	
 	

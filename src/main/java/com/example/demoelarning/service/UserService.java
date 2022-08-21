@@ -10,5 +10,6 @@ public interface UserService {
 	public User updateUser(User a);
 	public User getById(Long id);
 	public void deleteUser(Long id);
+	public User login(String email,String password);
 
 }

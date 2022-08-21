@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demoelarning.models.LoginRequest;
 import com.example.demoelarning.models.User;
 import com.example.demoelarning.service.UserService;
 
@@ -44,6 +45,10 @@ public class UserController {
 	public void delete(@PathVariable Long id) {
 		this.userService.deleteUser(id);
 		
+	}
+	@PostMapping("/login")
+	public User login(@RequestBody LoginRequest user) {
+		return this.userService.login(user.getEmail(), user.getPassword());
 	}
 
 }

@@ -7,12 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demoelarning.models.Reclamation;
+import com.example.demoelarning.models.User;
 import com.example.demoelarning.repository.ReclamationRepo;
+import com.example.demoelarning.repository.UserRepo;
 import com.example.demoelarning.service.ReclamationService;
 @Service
 public class ReclamationServiceImpl implements ReclamationService {
 	@Autowired
 	ReclamationRepo reclamationRepo;
+	@Autowired
+	UserRepo userRepo;
+
 	@Override
 	public Reclamation addReclamation(Reclamation a) {
 		// TODO Auto-generated method stub
@@ -44,5 +49,6 @@ public class ReclamationServiceImpl implements ReclamationService {
 		this.reclamationRepo.deleteById(id);
 		
 	}
+
 
 }
