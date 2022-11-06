@@ -43,13 +43,15 @@ public class Traineeship {
 	private String startTime;
 	@Column
 	private String meetingHour;
+	@Column
+	private String img;
 	@ManyToMany
 	@JoinTable(name = "inscription", joinColumns = @JoinColumn(name = "traineeship_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<User> users = new ArrayList<User>();
 	
 	public Traineeship(Long id, String title, @NotBlank String description, String level, @NotBlank String state,
 			String totalOfHours, Date startDate, Date finalDate, String price, @NotBlank String startTime,
-			String meetingHour, List<User> users) {
+			String meetingHour, List<User> users,String img) {
 		super();
 		this.title = title;
 		this.description = description;
@@ -62,6 +64,7 @@ public class Traineeship {
 		this.startTime = startTime;
 		this.meetingHour = meetingHour;
 		this.users = users;
+		this.img=img;
 	}
 	public Traineeship() {
 		super();
@@ -143,6 +146,13 @@ public class Traineeship {
 		this.users.add(a);
 		
 	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
+	
 	
 	
 
